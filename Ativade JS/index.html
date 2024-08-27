@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Atividade "if-else"</h1>
+        <label for="yearOfBirth">Digite o ano de nascimento:</label>
+        <input type="text" id="yearOfBirth" placeholder="Ano de nascimento">
+        <button onclick="calculateAge()">Calcular Idade</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateAge() {
+
+            const yearOfBirth = document.getElementById('yearOfBirth').value;
+            const currentYear = new Date().getFullYear();
+
+            if (!yearOfBirth || isNaN(yearOfBirth) || yearOfBirth <= 0) {
+                document.getElementById('result').textContent = 'Por favor, insira um ano válido.';
+                return;
+            }
+
+            const age = currentYear - parseInt(yearOfBirth);
+
+            const status = age >= 18 ? 'maior' : 'menor';
+
+            document.getElementById('result').textContent = `Você tem ${age} anos e é ${status} de idade.`;
+        }
+    </script>
+</body>
+
+</html>
